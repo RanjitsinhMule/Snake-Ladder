@@ -2,19 +2,44 @@ package com.bridgelabz.snakeandladder;
 
 public class SnakeAndLadder {
 	
-		// Use method to roll die
-	    static void rolldie() {
-		    int min=1;
-		    int max=6;
-		    int Number= (int) Math.floor(Math.random()*(max-min)+min);
+	// Use Function to roll the die
+		static void rolldie() {
+			int min=1;
+			int max=6;
+			int dieNumber = (int) Math.floor(Math.random()*(max-min)+min);
 		
-		    System.out.println("Die_number = "+Number);
-	    }
+			System.out.println("Die = "+dieNumber);
+		}
+		static void checkPlayer(int check) {
 
-	    public static void main(String[] args) {
+			// check They are no play, Ladder or Snake
+			switch (check) {
+				case 0:
+					System.out.println("They are No play");
+					break;
+				case 1:
+					System.out.println("Ladder");
+					rolldie();
+					break;
+				case 2:
+					System.out.println("Snake");
+					rolldie();
+					break;
+				default:
+					System.out.println("Some thing went wrong");
+			}
+		}
+		public static void main(String[] args) {
 
-		    // Function call
-	        rolldie();
+			int position=0;
+	        int player = 1;
+	        System.out.println("Player" +player+ " in the position = "+position);
+
+			// Generate random Numbers
+			int check = (int) Math.floor((Math.random()*10) % 3 );
+
+			// Function call
+			checkPlayer(check);
 	}
   }
 
