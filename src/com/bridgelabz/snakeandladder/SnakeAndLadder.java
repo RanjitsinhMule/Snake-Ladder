@@ -2,75 +2,73 @@ package com.bridgelabz.snakeandladder;
 
 public class SnakeAndLadder {
 	
-	// Class level variables
+	// class level variables
 		static int total=0;
-		static int cal=0;
-		static int count=0;
 
-		//  use function  to roll the die
+		//  The player roll die using method
 		static void rolldie() {
 			int min=1;
 			int max=6;
 			int dieNumber = (int) Math.floor(Math.random()*(max-min)+min);
 		
 			System.out.println("Die = "+dieNumber);
-		
+		 
+			if (total + dieNumber <= 100) {  // Ensure the player current position + die Number not goto >100
+				total=total+dieNumber;
+	   
+	   		// Print the Player position after every die
 
-			if (total <= 100) {
-
-				total=total+dieNumber; // print player position after every die
-
-				System.out.println("Player in the position = "+total);
-				switch (total) {
-					case 10:
-						System.out.println("Ladder");
-						total=total+10;
-						System.out.println("After Ladder = "+total);
-						break;
-					case 20:
-						System.out.println("Snake");
-						total=total-5;
-						System.out.println("After Snake = "+total);
-						break;
-					case 30:
-						System.out.println("Ladder");
-						total=total+10;
-						System.out.println("After Ladder = "+total);
-						break;
-					case 40:
-						System.out.println("Snake");
-						total=total-5;
-						System.out.println("After Snake = "+total);
-						break;
-					case 50:
-						System.out.println("Ladder");
-						total=total+10;
-						System.out.println("After Ladder = "+total);
-						break;
-					case 60:
-						System.out.println("Snake");
-						total=total-5;
-						System.out.println("After Snake = "+total);
-						break;
-					case 70:
-						System.out.println("Ladder");
-						total=total+10;
-						System.out.println("After Ladder = "+total);
-						break;
-					case 80:
-						System.out.println("Snake");
-						total=total-5;
-						System.out.println("After Snake = "+total);
-						break;
-					case 90:
-						System.out.println("Ladder");
-						total=total+10;
-						System.out.println("After Ladder = "+total);
-						break;
-					case 100:
-						System.out.println("Exit"); // after reach 100 exit the game
-						break;
-				}
+			System.out.println("Player in the position = "+total);
+			switch (total) {
+				case 10:
+					System.out.println("Ladder");
+					total=total+10;
+					System.out.println("After Ladder = "+total);
+					break;
+				case 20:
+					System.out.println("Snake");
+					total=total-5;
+					System.out.println("After Snake = "+total);
+					break;
+				case 30:
+					System.out.println("Ladder");
+					total=total+10;
+					System.out.println("After Ladder = "+total);
+					break;
+				case 40:
+					System.out.println("Snake");
+					total=total-5;
+					System.out.println("After Snake = "+total);
+					break;
+				case 50:
+					System.out.println("Ladder");
+					total=total+10;
+					System.out.println("After Ladder = "+total);
+					break;
+				case 60:
+					System.out.println("Snake");
+					total=total-5;
+					System.out.println("After Snake = "+total);
+					break;
+				case 70:
+					System.out.println("Ladder");
+					total=total+10;
+					System.out.println("After Ladder = "+total);
+					break;
+				case 80:
+					System.out.println("Snake");
+					total=total-5;
+					System.out.println("After Snake = "+total);
+					break;
+				case 90:
+					System.out.println("Ladder");
+					total=total+10;
+					System.out.println("After Ladder = "+total);
+					break;
+				case 100:
+					System.out.println("Exit");
+					break;
+			}
 			}
 			else {
 				rolldie();
@@ -79,9 +77,9 @@ public class SnakeAndLadder {
 
 		static void checkPlayer(int check) {
 
-			switch (check) {
+		// Check the player not play or go to die
 
-				// check not want to play or go to die
+			switch (check) {
 				case 0:
 					System.out.println("They are No play");
 					break;
@@ -103,7 +101,7 @@ public class SnakeAndLadder {
 			int position = 0;
 			System.out.println("Player" +player+ " in the position = " + position);
 
-			while (total < 100) {    // loop work till player reach 100
+			while (total < 100) {  // Loop continue until the player reach 100
 
 				int check = (int) Math.floor((Math.random() * 10) % 3);
 
