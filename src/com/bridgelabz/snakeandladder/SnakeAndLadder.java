@@ -2,46 +2,115 @@ package com.bridgelabz.snakeandladder;
 
 public class SnakeAndLadder {
 	
-	// Use Function to roll the die
+	// Class level variables
+		static int total=0;
+		static int cal=0;
+		static int count=0;
+
+		//  use function  to roll the die
 		static void rolldie() {
 			int min=1;
 			int max=6;
 			int dieNumber = (int) Math.floor(Math.random()*(max-min)+min);
 		
 			System.out.println("Die = "+dieNumber);
+		
+
+			if (total <= 100) {
+
+				total=total+dieNumber; // print player position after every die
+
+				System.out.println("Player in the position = "+total);
+				switch (total) {
+					case 10:
+						System.out.println("Ladder");
+						total=total+10;
+						System.out.println("After Ladder = "+total);
+						break;
+					case 20:
+						System.out.println("Snake");
+						total=total-5;
+						System.out.println("After Snake = "+total);
+						break;
+					case 30:
+						System.out.println("Ladder");
+						total=total+10;
+						System.out.println("After Ladder = "+total);
+						break;
+					case 40:
+						System.out.println("Snake");
+						total=total-5;
+						System.out.println("After Snake = "+total);
+						break;
+					case 50:
+						System.out.println("Ladder");
+						total=total+10;
+						System.out.println("After Ladder = "+total);
+						break;
+					case 60:
+						System.out.println("Snake");
+						total=total-5;
+						System.out.println("After Snake = "+total);
+						break;
+					case 70:
+						System.out.println("Ladder");
+						total=total+10;
+						System.out.println("After Ladder = "+total);
+						break;
+					case 80:
+						System.out.println("Snake");
+						total=total-5;
+						System.out.println("After Snake = "+total);
+						break;
+					case 90:
+						System.out.println("Ladder");
+						total=total+10;
+						System.out.println("After Ladder = "+total);
+						break;
+					case 100:
+						System.out.println("Exit"); // after reach 100 exit the game
+						break;
+				}
+			}
+			else {
+				rolldie();
+			}
 		}
+
 		static void checkPlayer(int check) {
 
-			// check They are no play, Ladder or Snake
 			switch (check) {
+
+				// check not want to play or go to die
 				case 0:
 					System.out.println("They are No play");
 					break;
 				case 1:
-					System.out.println("Ladder");
 					rolldie();
 					break;
 				case 2:
-					System.out.println("Snake");
 					rolldie();
 					break;
 				default:
 					System.out.println("Some thing went wrong");
 			}
 		}
+
+		
 		public static void main(String[] args) {
 
-			int position=0;
-	        int player = 1;
-	        System.out.println("Player" +player+ " in the position = "+position);
+			int player = 1;
+			int position = 0;
+			System.out.println("Player" +player+ " in the position = " + position);
 
-			// Generate random Numbers
-			int check = (int) Math.floor((Math.random()*10) % 3 );
+			while (total < 100) {    // loop work till player reach 100
 
-			// Function call
-			checkPlayer(check);
-	}
-  }
+				int check = (int) Math.floor((Math.random() * 10) % 3);
 
+				// Function call
+				checkPlayer(check);
+	   }
+   }
+}
 
 
